@@ -61,3 +61,25 @@ Para aplicar as migrações e criar o arquivo `produtos.db`, execute estes dois 
 
 Utilizei o Vite com React para ter um ambiente rápido e moderno de desenvolvimento. Para estilização, usei Tailwind CSS na versão mais recente, integrando via plugin do Vite para simplificar a configuração. Durante o processo, enfrentei desafios relacionados a mudanças na versão do Tailwind, principalmente a remoção do comando init, o que exigiu adaptação para a nova abordagem baseada em plugins.
 
+# Criação da pasta services 
+
+A estratégia por trás da criação da pasta services é a implementação do padrão Service Layer no frontend. Em vez de espalhar chamadas de API por todos os componentes, centralizamos toda a comunicação com o backend .NET em um único local.
+
+Ao criar o arquivo api.js dentro de services, defini uma instância única do Axios com a baseURL configurada `(ex: http://localhost:5250/api)`
+
+**Vantagem:** Se a porta do seu servidor mudar de 5250 para 5032, você altera em apenas um lugar, e todo o sistema continua funcionando.
+
+# Criação da pasta components
+
+A estratégia para a criação da pasta components baseia-se no princípio da Modularização e Reutilização de Interface, fundamental para construir o sistema de catálogo de forma escalável e organizada.
+
+O **ProductCard:** Um componente dedicado exclusivamente a renderizar as informações de um único produto, como nome, preço e badges de estoque.
+
+# Conexao do Backend com Frontend
+
+A estratégia para conectar o Backend em .NET com o Frontend em React baseou-se na criação de uma arquitetura desacoplada, onde as duas aplicações se comunicam de forma assíncrona através do protocolo HTTP.
+
+A peça central da conexão é a biblioteca Axios, utilizada para criar um serviço cliente no React. Esse serviço foi configurado com uma baseURL apontando para o endereço do servidor `(localhost:5250)`, permitindo que o frontend dispare requisições para as rotas da ProdutosController que eu desenvolvi.
+
+Como o navegador, por padrão, bloqueia requisições entre portas diferentes (Vite na 5173 e .NET na 5250), a estratégia incluiu a configuração de CORS no arquivo Program.cs do backend. Isso autorizou formalmente o seu frontend a ler e enviar dados para a API, desbloqueando o fluxo de informações.
+
