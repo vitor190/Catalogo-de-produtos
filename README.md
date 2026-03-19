@@ -1,5 +1,7 @@
 # Estratégias Utilizadas no Projeto
 
+# BACKEND
+
 # Bibliotecas:
 
 A estratégia foi identificar os requisitos do projeto e selecionar bibliotecas específicas para cada responsabilidade, mantendo o sistema simples, desacoplado e seguindo boas práticas como injeção de dependência e separação de responsabilidades.
@@ -36,3 +38,9 @@ Para aplicar as migrações e criar o arquivo `produtos.db`, execute estes dois 
 
 **Atualizar o banco de dados real:**
 ` dotnet ef database update `
+
+# Rodando o servidor:
+
+` dotnet run ` ao iniciar este comando, o código é transformado em uma API ativa
+` localhost: 5250 ` raiz da API
+` localhost:5250/swagger/index.html ` este é o painel de controle" visual da sua API, gerado pela biblioteca Swashbuckle que instalamos.
