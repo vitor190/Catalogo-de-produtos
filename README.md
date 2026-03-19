@@ -46,3 +46,13 @@ Para aplicar as migrações e criar o arquivo `produtos.db`, execute estes dois 
 ` localhost: 5250 ` raiz da API
 
 ` localhost:5250/swagger/index.html ` este é o painel de controle visual da API, gerado pela biblioteca Swashbuckle que instalamos.
+
+# FRONTEND
+
+# Criação da pasta frontend
+
+`npm create vite@latest frontend -- --template react` Cria a estrutura base do projeto usando o Vite.
+
+`npm install` Baixa todas as bibliotecas padrão que o React precisa para funcionar
+
+`npm install axios lucide-react` Instala um pacote de ícones modernos e leves.
