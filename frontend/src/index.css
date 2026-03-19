@@ -1,2 +1,25 @@
 @import "tailwindcss";
 
+@theme {
+  
+  --color-primary: #3B82F6;
+  --color-bg-main: #F9FAFB;
+  --color-card-bg: #FFFFFF;
+  --color-border-ui: #E5E7EB;
+  
+  --color-txt-primary: #1F2937;
+  --color-txt-secondary: #6B7280;
+
+ 
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+
+  --radius-card: 12px;
+  --radius-btn: 8px;
+}
+
+body {
+  @apply bg-bg-main text-txt-primary;
+}
+
