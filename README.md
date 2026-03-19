@@ -56,3 +56,7 @@ Para aplicar as migrações e criar o arquivo `produtos.db`, execute estes dois 
 `npm install` Baixa todas as bibliotecas padrão que o React precisa para funcionar
 
 `npm install axios lucide-react` Instala um pacote de ícones modernos e leves.
+
+# Criação da biblioteca Tailwind CSS
+
+Utilizei o Vite com React para ter um ambiente rápido e moderno de desenvolvimento. Para estilização, usei Tailwind CSS na versão mais recente, integrando via plugin do Vite para simplificar a configuração. Durante o processo, enfrentei desafios relacionados a mudanças na versão do Tailwind, principalmente a remoção do comando init, o que exigiu adaptação para a nova abordagem baseada em plugins.
