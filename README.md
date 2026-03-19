@@ -83,3 +83,32 @@ A peça central da conexão é a biblioteca Axios, utilizada para criar um servi
 
 Como o navegador, por padrão, bloqueia requisições entre portas diferentes (Vite na 5173 e .NET na 5250), a estratégia incluiu a configuração de CORS no arquivo Program.cs do backend. Isso autorizou formalmente o seu frontend a ler e enviar dados para a API, desbloqueando o fluxo de informações.
 
+# arquivo App.jsx
+
+A estratégia utilizada no App.jsx até agora foi focada em transformar o componente principal no Cérebro da Aplicação, centralizando a lógica de estado e a orquestração dos subcomponentes para atender aos requisitos.
+
+Implementei o useEffect para disparar chamadas à API .NET assim que o app é montado, garantindo que o catálogo seja populado automaticamente
+
+O App.jsx atua como um distribuidor de funções, passando callbacks para os componentes filhos, o que permite que um clique em um card lá na ponta atualize a lista principal
+
+Um dos primeiros obstáculos foi configurar o backend .NET para aceitar requisições do Vite (React), garantindo que a segurança do navegador não bloqueasse o fluxo de dados.
+
+O maior desafio lógico foi fazer com que o mesmo formulário servisse para Criar, etc. Exigindo uma lógica de limpeza de estado toda vez que o modal fosse fechado para não misturar os dados.
+
+# arquivo FormularioProoduto.jsx
+
+A estratégia para o FormularioProduto.jsx foi focada em transformar um simples conjunto de inputs em uma interface de controle rigorosa, garantindo que nenhum dado inválido chegue ao banco de dados .NET
+
+A principal estratégia foi fazer o formulário descobrir sua função. Se ele recebe um produtoInicial, ele se comporta como edição (usando PUT); caso contrário, atua como cadastro (usando POST).
+
+Um desafio técnico foi garantir que o preview da imagem fosse atualizado assim que o usuário colasse a URL, exigindo um tratamento cuidadoso do estado para não causar travamentos na interface.
+
+# arquivo ProductCard.jsx
+
+A estratégia utilizada no ProductCard.jsx foi focada em criar uma unidade de interface inteligente e independente, que não apenas exibe dados, mas também processa a lógica visual e as interações do usuário de forma isolada
+
+Implementei uma função interna para mapear a quantidade de itens vinda do banco de dados em categorias visuais específicas.
+
+Ajustar os tamanhos exatos exigidos (Títulos 18px e Preços 22px) usando as classes do Tailwind para garantir que o preço tivesse o devido destaque sem poluir o card.
+
+Desafios que tive foi: Gerenciar Imagens Externas, com diferentes proporções de imagens vindas de URLs externas. A solução foi utilizar as classes object-cover e h-40 para manter um padrão visual uniforme no grid, independentemente da fonte da imagem. E também ajustar os tamanhos exatos exigidos usando as classes do Tailwind para garantir que o preço tivesse o devido destaque sem poluir o card.
