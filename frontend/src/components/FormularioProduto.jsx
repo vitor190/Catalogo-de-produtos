@@ -1,25 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import api from '../services/api';
 
-export function FormularioProduto({ onClose, onSuccess }) {
+export function FormularioProduto({ onClose, onSuccess, produtoInicial }) {
   const [formData, setFormData] = useState({
-    nome: '',
-    descricao: '', // Estado para a descrição [cite: 64]
-    preco: 0,
-    estoque: 0,
-    categoria: '',
-    imagemUrl: ''
+    nome: '', descricao: '', preco: 0, estoque: 0, categoria: '', imagemUrl: ''
   });
 
   const [erros, setErros] = useState({});
 
-  // Validações baseadas no Guia Visual [cite: 77]
+  useEffect(() => {
+    if (produtoInicial) {
+      setFormData(produtoInicial);
+    }
+  }, [produtoInicial]);
+
   const validar = () => {
     let e = {};
-    if (!formData.nome || formData.nome.length > 100) e.nome = "Nome obrigatório (máx 100 caracteres)"; 
-    if (formData.preco <= 0) e.preco = "Preço deve ser maior que 0"; 
-    if (formData.estoque < 0) e.estoque = "Estoque não pode ser negativo"; 
-    if (!formData.categoria) e.categoria = "Categoria obrigatória"; 
+    if (!formData.nome || formData.nome.length > 100) e.nome = "Nome obrigatório (máx 100 caracteres)"; // [cite: 8, 187]
+    if (formData.preco <= 0) e.preco = "Preço deve ser maior que 0"; // [cite: 10, 188]
+    if (formData.estoque < 0) e.estoque = "Estoque não pode ser negativo"; // [cite: 11, 189]
+    if (!formData.categoria) e.categoria = "Categoria obrigatória"; // [cite: 190]
     
     setErros(e);
     return Object.keys(e).length === 0;
@@ -29,10 +29,14 @@ export function FormularioProduto({ onClose, onSuccess }) {
     if (!validar()) return;
 
     try {
-      await api.post('/Produtos', formData);
+      if (produtoInicial) {
+        await api.put(`/Produtos/${produtoInicial.id}`, formData);
+      } else {
+        await api.post('/Produtos', formData);
+      }
       onSuccess();
     } catch (err) {
-      alert("Erro ao salvar produto no banco .NET");
+      alert("Erro ao processar produto no banco .NET");
     }
   };
 
@@ -40,27 +44,27 @@ export function FormularioProduto({ onClose, onSuccess }) {
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
       <div className="bg-white rounded-[12px] p-[30px] w-full max-w-[500px] shadow-2xl">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-[24px] font-bold text-[#1F2937]">Novo Produto</h2>
+          <h2 className="text-[24px] font-bold text-[#1F2937]">
+            {produtoInicial ? 'Editar Produto' : 'Novo Produto'}
+          </h2>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
         </div>
 
         <div className="space-y-4">
-          {/* Nome do Produto */}
           <div>
             <label className="block text-[14px] font-semibold mb-1">Nome do Produto *</label>
             <input 
-              placeholder="Ex: Notebook Gamer"
+              value={formData.nome}
               className="w-full border border-[#E5E7EB] p-3 rounded-[8px] focus:ring-2 focus:ring-[#3B82F6] outline-none"
               onChange={e => setFormData({...formData, nome: e.target.value})}
             />
             {erros.nome && <p className="text-[#EF4444] text-xs mt-1">{erros.nome}</p>}
           </div>
 
-          {/* Campo de Descrição Adicionado [cite: 64, 65] */}
           <div>
             <label className="block text-[14px] font-semibold mb-1">Descrição</label>
             <textarea 
-              placeholder="Descreva o produto..."
+              value={formData.descricao}
               rows="3"
               className="w-full border border-[#E5E7EB] p-3 rounded-[8px] focus:ring-2 focus:ring-[#3B82F6] outline-none resize-none"
               onChange={e => setFormData({...formData, descricao: e.target.value})}
@@ -72,7 +76,8 @@ export function FormularioProduto({ onClose, onSuccess }) {
               <label className="block text-[14px] font-semibold mb-1">Preço (R$) *</label>
               <input 
                 type="number"
-                className="w-full border border-[#E5E7EB] p-3 rounded-[8px] focus:ring-2 focus:ring-[#3B82F6] outline-none"
+                value={formData.preco}
+                className="w-full border border-[#E5E7EB] p-3 rounded-[8px]"
                 onChange={e => setFormData({...formData, preco: Number(e.target.value)})}
               />
               {erros.preco && <p className="text-[#EF4444] text-xs mt-1">{erros.preco}</p>}
@@ -81,7 +86,8 @@ export function FormularioProduto({ onClose, onSuccess }) {
               <label className="block text-[14px] font-semibold mb-1">Estoque *</label>
               <input 
                 type="number"
-                className="w-full border border-[#E5E7EB] p-3 rounded-[8px] focus:ring-2 focus:ring-[#3B82F6] outline-none"
+                value={formData.estoque}
+                className="w-full border border-[#E5E7EB] p-3 rounded-[8px]"
                 onChange={e => setFormData({...formData, estoque: Number(e.target.value)})}
               />
               {erros.estoque && <p className="text-[#EF4444] text-xs mt-1">{erros.estoque}</p>}
@@ -91,6 +97,7 @@ export function FormularioProduto({ onClose, onSuccess }) {
           <div>
             <label className="block text-[14px] font-semibold mb-1">Categoria *</label>
             <select 
+              value={formData.categoria}
               className="w-full border border-[#E5E7EB] p-3 rounded-[8px] bg-white focus:ring-2 focus:ring-[#3B82F6] outline-none"
               onChange={e => setFormData({...formData, categoria: e.target.value})}
             >
@@ -102,10 +109,11 @@ export function FormularioProduto({ onClose, onSuccess }) {
             {erros.categoria && <p className="text-[#EF4444] text-xs mt-1">{erros.categoria}</p>}
           </div>
 
-          {/* URL da Imagem [cite: 70, 71] */}
+          {/* URL DA IMAGEM  */}
           <div>
             <label className="block text-[14px] font-semibold mb-1">URL da Imagem</label>
             <input 
+              value={formData.imagemUrl}
               placeholder="https://..."
               className="w-full border border-[#E5E7EB] p-3 rounded-[8px] focus:ring-2 focus:ring-[#3B82F6] outline-none"
               onChange={e => setFormData({...formData, imagemUrl: e.target.value})}
@@ -114,17 +122,12 @@ export function FormularioProduto({ onClose, onSuccess }) {
         </div>
 
         <div className="flex justify-end gap-3 mt-8">
-          <button 
-            onClick={onClose}
-            className="px-6 py-2 bg-gray-100 text-[#1F2937] rounded-[8px] font-semibold hover:bg-gray-200 transition-colors"
-          >
-            Cancelar
-          </button>
+          <button onClick={onClose} className="px-6 py-2 bg-gray-100 text-[#1F2937] rounded-[8px] font-semibold hover:bg-gray-200">Cancelar</button>
           <button 
             onClick={handleSalvar}
-            className="px-6 py-2 bg-[#3B82F6] text-white rounded-[8px] font-semibold hover:bg-[#2563EB] transition-all"
+            className="px-6 py-2 bg-[#3B82F6] text-white rounded-[8px] font-semibold hover:bg-[#2563EB]"
           >
-            ✓ Salvar Produto
+            ✓ {produtoInicial ? 'Atualizar Produto' : 'Salvar Produto'}
           </button>
         </div>
       </div>
