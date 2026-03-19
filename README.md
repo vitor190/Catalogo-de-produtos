@@ -27,3 +27,12 @@ A estratégia para o Controllers foi implementar o padrão RESTful, centralizand
 
 A estratégia para a atualização do Program.cs foi configurar o pipeline de execução da aplicação para atuar como um servidor de API completo e desacoplado. Utilizei a Injeção de Dependência para conectar o `AppDbContext` ao sistema, habilitei o suporte a Controllers para organizar as rotas de forma escalável e apliquei uma política de CORS para garantir que o frontend em React consiga consumir os dados sem bloqueios de segurança. Além disso, integrei o Swagger para fornecer uma documentação viva e interativa, facilitando os testes das regras de negócio e validações antes da integração final.
 
+# Rodando as Migrações
+
+Para aplicar as migrações e criar o arquivo `produtos.db`, execute estes dois comandos no terminal dentro da pasta `CatalogoProdutosAPI`
+
+**Criar o arquivo de migração:**
+` dotnet ef migrations add AdicionandoCamposProdutos `
+
+**Atualizar o banco de dados real:**
+` dotnet ef database update `
