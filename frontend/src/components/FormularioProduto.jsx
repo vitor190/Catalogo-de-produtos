@@ -3,7 +3,7 @@ import api from '../services/api';
 
 export function FormularioProduto({ onClose, onSuccess, produtoInicial }) {
   const [formData, setFormData] = useState({
-    nome: '', descricao: '', preco: 0, estoque: 0, categoria: '', imagemUrl: ''
+    nome: '', descricao: '', preco: "", estoque: "", categoria: '', imagemUrl: ''
   });
 
   const [erros, setErros] = useState({});
@@ -16,10 +16,10 @@ export function FormularioProduto({ onClose, onSuccess, produtoInicial }) {
 
   const validar = () => {
     let e = {};
-    if (!formData.nome || formData.nome.length > 100) e.nome = "Nome obrigatório (máx 100 caracteres)"; // [cite: 8, 187]
-    if (formData.preco <= 0) e.preco = "Preço deve ser maior que 0"; // [cite: 10, 188]
-    if (formData.estoque < 0) e.estoque = "Estoque não pode ser negativo"; // [cite: 11, 189]
-    if (!formData.categoria) e.categoria = "Categoria obrigatória"; // [cite: 190]
+    if (!formData.nome || formData.nome.length > 100) e.nome = "Nome obrigatório (máx 100 caracteres)"; 
+    if (formData.preco <= 0) e.preco = "Preço deve ser maior que 0"; 
+    if (formData.estoque < 0) e.estoque = "Estoque não pode ser negativo"; 
+    if (!formData.categoria) e.categoria = "Categoria obrigatória"; 
     
     setErros(e);
     return Object.keys(e).length === 0;
