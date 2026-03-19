@@ -1,7 +1,5 @@
 # Estratégias Utilizadas no Projeto
 
-#BACKEND
-
 # Bibliotecas:
 
 A estratégia foi identificar os requisitos do projeto e selecionar bibliotecas específicas para cada responsabilidade, mantendo o sistema simples, desacoplado e seguindo boas práticas como injeção de dependência e separação de responsabilidades.
