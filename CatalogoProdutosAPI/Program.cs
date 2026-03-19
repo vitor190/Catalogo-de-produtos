@@ -32,6 +32,6 @@ app.UseCors("AllowAll");
 app.UseHttpsRedirection();
 app.MapControllers();
 
-app.MapGet("/", () => "API Catalogo Agilean rodando 🚀");
+app.MapGet("/", () => "API Catalogo de produtos rodando");
 
 app.Run();
