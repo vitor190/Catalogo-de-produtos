@@ -3,7 +3,12 @@ import api from '../services/api';
 
 export function FormularioProduto({ onClose, onSuccess, produtoInicial }) {
   const [formData, setFormData] = useState({
-    nome: '', descricao: '', preco: "", estoque: "", categoria: '', imagemUrl: ''
+    nome: '', 
+    descricao: '', 
+    preco: "", estoque: "", 
+    categoria: '', 
+    imagemUrl: '',
+    ativo: true
   });
 
   const [erros, setErros] = useState({});
@@ -94,6 +99,19 @@ export function FormularioProduto({ onClose, onSuccess, produtoInicial }) {
             </div>
           </div>
 
+          <div className="flex items-center gap-2 py-2">
+            <input 
+              type="checkbox"
+              id="ativo"
+              checked={formData.ativo}
+              className="w-4 h-4 accent-[#3B82F6] cursor-pointer"
+              onChange={e => setFormData({...formData, ativo: e.target.checked})}
+            />
+            <label htmlFor="ativo" className="text-[14px] font-semibold text-[#1F2937] dark:text-black-200 cursor-pointer">
+              Produto Ativo
+            </label>
+          </div>
+
           <div>
             <label className="block text-[14px] font-semibold mb-1">Categoria *</label>
             <select 
@@ -109,7 +127,6 @@ export function FormularioProduto({ onClose, onSuccess, produtoInicial }) {
             {erros.categoria && <p className="text-[#EF4444] text-xs mt-1">{erros.categoria}</p>}
           </div>
 
-          {/* URL DA IMAGEM  */}
           <div>
             <label className="block text-[14px] font-semibold mb-1">URL da Imagem</label>
             <input 
