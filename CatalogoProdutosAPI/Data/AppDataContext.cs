@@ -7,11 +7,11 @@ namespace CatalogoProdutosAPI.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Product> Produtos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Produto>()
+            modelBuilder.Entity<Product>()
                 .Property(p => p.Preco)
                 .HasPrecision(18, 2);
         }

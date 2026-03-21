@@ -17,7 +17,7 @@ namespace CatalogoProdutosAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Produto>>> GetProdutos()
+        public async Task<ActionResult<IEnumerable<Product>>> GetProdutos()
         {
             return await _context.Produtos
                 .OrderByDescending(p => p.DataCadastro)
@@ -25,7 +25,7 @@ namespace CatalogoProdutosAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Produto>> GetProduto(int id)
+        public async Task<ActionResult<Product>> GetProduto(int id)
         {
             var produto = await _context.Produtos.FindAsync(id);
             if (produto == null) return NotFound();
@@ -33,7 +33,7 @@ namespace CatalogoProdutosAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Produto>> PostProduto(Produto produto)
+        public async Task<ActionResult<Product>> PostProduto(Product produto)
         {
             _context.Produtos.Add(produto);
             await _context.SaveChangesAsync();
@@ -41,7 +41,7 @@ namespace CatalogoProdutosAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProduto(int id, Produto produto)
+        public async Task<IActionResult> PutProduto(int id, Product produto)
         {
             if (id != produto.Id) return BadRequest();
             _context.Entry(produto).State = EntityState.Modified;

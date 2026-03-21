@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import api from './services/api';
 import { ProductCard } from './components/ProductCard';
-import { FormularioProduto } from './components/FormularioProduto';
+import { ProductForm } from './components/ProductForm';
 
 function App() {
   const [produtos, setProdutos] = useState([]);
@@ -29,13 +29,8 @@ function App() {
 
   const produtosExibidos = produtos
     .filter(p => {
-      
       const matchesSearch = p.nome.toLowerCase().includes(searchTerm.toLowerCase());
-      
-    
       const matchesCategory = selectedCategory === '' || p.categoria === selectedCategory;
-      
-      
       const matchesDisponibilidade = 
         disponibilidade === 'todos' ? true :
         disponibilidade === 'disponiveis' ? p.estoque > 0 :
@@ -44,7 +39,6 @@ function App() {
       return matchesSearch && matchesCategory && matchesDisponibilidade;
     })
     .sort((a, b) => {
-    
       if (ordenacao === 'nome') return a.nome.localeCompare(b.nome);
       if (ordenacao === 'preco-menor') return a.preco - b.preco;
       if (ordenacao === 'preco-maior') return b.preco - a.preco;
@@ -76,7 +70,6 @@ function App() {
             </button>
           </div>
 
-          
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <input 
               type="text"
@@ -142,7 +135,8 @@ function App() {
       </main>
 
       {showModal && (
-        <FormularioProduto 
+        /* CORREÇÃO: Mudei de ProductoForm para ProductForm */
+        <ProductForm
           produtoInicial={produtoParaEditar} 
           onClose={fecharModal} 
           onSuccess={() => {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import api from '../services/api';
 
-export function FormularioProduto({ onClose, onSuccess, produtoInicial }) {
+export function ProductForm({ onClose, onSuccess, produtoInicial }) {
   const [formData, setFormData] = useState({
     nome: '', 
     descricao: '', 
@@ -142,7 +142,7 @@ export function FormularioProduto({ onClose, onSuccess, produtoInicial }) {
           <button onClick={onClose} className="px-6 py-2 bg-gray-100 text-[#1F2937] rounded-[8px] font-semibold hover:bg-gray-200">Cancelar</button>
           <button 
             onClick={handleSalvar}
-            className="px-6 py-2 bg-[#3B82F6] text-white rounded-[8px] font-semibold hover:bg-[#2563EB]"
+            className="px-6 py-2 bg-[#10B981] text-white rounded-[8px] font-semibold hover:bg-[#059669]"
           >
             ✓ {produtoInicial ? 'Atualizar Produto' : 'Salvar Produto'}
           </button>
