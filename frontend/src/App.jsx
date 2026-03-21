@@ -9,12 +9,11 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const [produtoParaEditar, setProdutoParaEditar] = useState(null);
 
-  // ESTADOS DE BUSCA, FILTRO E ORDENAÇÃO 
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [disponibilidade, setDisponibilidade] = useState('todos'); 
   const [ordenacao, setOrdenacao] = useState('recentes'); 
-
+  
   const carregarProdutos = () => {
     setLoading(true);
     api.get('/Produtos')

@@ -93,7 +93,7 @@ O App.jsx atua como um distribuidor de funções, passando callbacks para os com
 
 Um dos primeiros obstáculos foi configurar o backend .NET para aceitar requisições do Vite (React), garantindo que a segurança do navegador não bloqueasse o fluxo de dados.
 
-O maior desafio lógico foi fazer com que o mesmo formulário servisse para Criar, etc. Exigindo uma lógica de limpeza de estado toda vez que o modal fosse fechado para não misturar os dados.
+O maior desafio lógico foi fazer com que o mesmo formulário servisse para criar, Buscar, Editar etc. Exigindo uma lógica de limpeza de estado toda vez que o modal fosse fechado para não misturar os dados.
 
 # arquivo FormularioProoduto.jsx
 
@@ -102,6 +102,8 @@ A estratégia para o FormularioProduto.jsx foi focada em transformar um simples 
 A principal estratégia foi fazer o formulário descobrir sua função. Se ele recebe um produtoInicial, ele se comporta como edição (usando PUT); caso contrário, atua como cadastro (usando POST).
 
 Um desafio técnico foi garantir que o preview da imagem fosse atualizado assim que o usuário colasse a URL, exigindo um tratamento cuidadoso do estado para não causar travamentos na interface.
+
+A estratégia agora, foi usar a prop produtoInicial. Se ela existe, o formulário se comporta como Edição (PUT); se não, como Cadastro (POST). Isso economiza centenas de linhas de código e adicionei o controle de checkbox vinculado diretamente ao estado, permitindo que o usuário controle a visibilidade do produto no catálogo de forma simples.
 
 # arquivo ProductCard.jsx
 
@@ -112,3 +114,6 @@ Implementei uma função interna para mapear a quantidade de itens vinda do banc
 Ajustar os tamanhos exatos exigidos (Títulos 18px e Preços 22px) usando as classes do Tailwind para garantir que o preço tivesse o devido destaque sem poluir o card.
 
 Desafios que tive foi: Gerenciar Imagens Externas, com diferentes proporções de imagens vindas de URLs externas. A solução foi utilizar as classes object-cover e h-40 para manter um padrão visual uniforme no grid, independentemente da fonte da imagem. E também ajustar os tamanhos exatos exigidos usando as classes do Tailwind para garantir que o preço tivesse o devido destaque sem poluir o card.
+
+A estratégia para a parte de ativo/inativo, agora usa o bg-white como base obrigatória e aplica uma Camada de Opacidade (opacity-70) apenas quando o produto está inativo. Isso cria um efeito de desabilitação sem quebrar o layout.
+
