@@ -286,11 +286,17 @@ Padronização de imagens com:
 # ⚡ Funcionalidades:
 
 ✅ Cadastro de produtos
+
 ✅ Listagem dinâmica
+
 ✅ Edição de produtos
+
 ✅ Exclusão com confirmação
+
 ✅ Controle de ativo/inativo
+
 ✅ Contador de produtos
+
 ✅ Interface responsiva
 
 # ⚙️ Desafios Enfrentados:
