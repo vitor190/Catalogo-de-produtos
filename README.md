@@ -56,6 +56,16 @@ Inativo:
 
 ![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/58887f69350c9fe6dd5f96d593bfb06501236a63/preview/quantidade.PNG)
 
+**Visao geral darkmode:**
+
+Claro:
+
+![image alt]()
+
+Escuro:
+
+![image alt]()
+
 ---
 
 # 🚀 Tecnologias Utilizadas
@@ -252,6 +262,18 @@ baseURL: http://localhost:5250/api
 
 `.reduce()` para agregações
 
+### 📄 Sistema de tema(Darkmode)
+
+**Estratégias:**
+
+- Controle Manual
+- Variantes Tailwind
+- Persistência Visual
+
+**Desafios:**
+
+- Inversão de Tema
+
 ### 📄 ProductForm.jsx
 
 **Estratégia:**
@@ -310,6 +332,8 @@ Padronização de imagens com:
 ✅ Contador de produtos
 
 ✅ Interface responsiva
+
+✅ Sistema darkmode
 
 # ⚙️ Desafios Enfrentados:
 
