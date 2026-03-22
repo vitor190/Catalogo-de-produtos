@@ -60,11 +60,11 @@ Inativo:
 
 Claro:
 
-![image alt]()
+![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/662369b2dd2d5e5a03a1fa618f74ec74a24c4ebb/preview/visao%20darkmode%20claro.PNG)
 
 Escuro:
 
-![image alt]()
+![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/662369b2dd2d5e5a03a1fa618f74ec74a24c4ebb/preview/visao%20darmode%20escuro.PNG)
 
 ---
 
