@@ -6,47 +6,51 @@ Sistema fullstack para gerenciamento de produtos, desenvolvido com **.NET (C#)**
 
 # 📸 Preview
 
-**Visao geral do catálogo**
+**Visao geral do catálogo:**
 
 ![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/58887f69350c9fe6dd5f96d593bfb06501236a63/preview/visao%20geral.PNG)
 
-**Design de criar produto**
+**Design de criar produto:**
 
 ![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/58887f69350c9fe6dd5f96d593bfb06501236a63/preview/criar%20produto.PNG)
 
-**Design de editar produto**
+**Design de editar produto:**
 
 ![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/58887f69350c9fe6dd5f96d593bfb06501236a63/preview/editar%20produto.PNG)
 
-**Design de excluir produto**
+**Design de excluir produto:**
 
 ![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/58887f69350c9fe6dd5f96d593bfb06501236a63/preview/excluir%20produto.PNG)
 
-**buscar produto por nome**
+**Buscar produto por nome:**
 
 ![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/58887f69350c9fe6dd5f96d593bfb06501236a63/preview/buscar%20pelo%20nome.PNG)
 
-**buscar produto por categoria**
+**Buscar produto por categoria:**
 
 ![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/58887f69350c9fe6dd5f96d593bfb06501236a63/preview/buscar%20por%20categoria.PNG)
 
-**buscar produto por Disponiblidade**
+**Buscar produto por Disponiblidade:**
 
+Disponivel:
 ![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/58887f69350c9fe6dd5f96d593bfb06501236a63/preview/buscar%20por%20disponibilidade%201.PNG)
 
+Sem estoque:
 ![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/58887f69350c9fe6dd5f96d593bfb06501236a63/preview/buscar%20por%20disponibilidade%202.PNG)
 
-**Design de ativo e inativo**
+**Design de ativo/inativo:**
 
+Ativo:
 ![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/58887f69350c9fe6dd5f96d593bfb06501236a63/preview/ativo.PNG)
 
+Inativo:
 ![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/58887f69350c9fe6dd5f96d593bfb06501236a63/preview/inativo.PNG)
 
-**Odenar produto**
+**Odenar produto:**
 
 ![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/58887f69350c9fe6dd5f96d593bfb06501236a63/preview/ordenar.PNG)
 
-**Quantidade e valor total de produtos no catálogo**
+**Quantidade e valor total de produtos no catálogo:**
 
 ![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/58887f69350c9fe6dd5f96d593bfb06501236a63/preview/quantidade.PNG)
 
