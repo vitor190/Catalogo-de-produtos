@@ -41,9 +41,11 @@ Sem estoque:
 **Design de ativo/inativo:**
 
 Ativo:
+
 ![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/58887f69350c9fe6dd5f96d593bfb06501236a63/preview/ativo.PNG)
 
 Inativo:
+
 ![image alt](https://github.com/vitor190/Catalogo-de-produtos/blob/58887f69350c9fe6dd5f96d593bfb06501236a63/preview/inativo.PNG)
 
 **Odenar produto:**
