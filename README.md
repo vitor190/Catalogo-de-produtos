@@ -315,6 +315,15 @@ Padronização de imagens com:
 
 - Opacidade para produtos inativos (opacity-70)
 
+### Executando o Frontend
+
+```bash
+npm run dev
+```
+Acesse:
+
+Local: http://localhost:5173/
+
 ---
 
 # ⚡ Funcionalidades:
