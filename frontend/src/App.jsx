@@ -65,7 +65,7 @@ function App() {
           <div className="flex justify-between items-center">
             <div>
               <h1 className={`text-[24px] md:text-[28px] font-bold tracking-tight ${isDark ? 'text-white' : 'text-[#1F2937]'}`}>
-                Catálogo Agilean
+                Catálogo de Produtos
               </h1>
               <div className="flex flex-wrap gap-x-6 gap-y-1 mt-1 text-[14px]">
                 <p className={`${isDark ? 'text-gray-400' : 'text-[#6B7280]'}`}>
